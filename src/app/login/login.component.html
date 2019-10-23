@@ -1,0 +1,30 @@
+<div class="container">
+<h2 style="color: rgb(33, 8, 143); text-align: center">Login Form</h2>
+
+<form [formGroup]="loginForm">
+  <div class="container">
+    <div class="form-group">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" formControlName="username">
+    <span *ngIf="!username.valid && !username.errors.minlength">Username required</span><br>
+    <span *ngIf="!username.valid ">username must contain 5 or more character</span>
+    </div>
+
+    <div class="form-group">
+    <label for="password"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" formControlName="password">
+    <span *ngIf="!password.valid">Password required</span>
+    </div>
+    
+    
+    <button  type="submit" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    
+        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      
+  </div>
+</form>
+</div>
